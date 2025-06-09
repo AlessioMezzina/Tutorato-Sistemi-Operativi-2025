@@ -1,7 +1,4 @@
-🎓 Tutorato Sistemi Operativi A.A. 2024-2025
-
-Benvenuti alla repo del tutorato di **Sistemi Operativi 2025**!
----
+# 🎓 Tutorato Sistemi Operativi A.A. 2024-2025
 
 ## 📂 Struttura del Repo
 
