@@ -1,6 +1,5 @@
 🎓 Tutorato Sistemi Operativi A.A. 2024-2025
 
-## 🚀 About
 Benvenuti alla repo del tutorato di **Sistemi Operativi 2025**!
 ---
 
