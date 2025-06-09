@@ -72,5 +72,3 @@ Benvenuti alla repo del tutorato di **Sistemi Operativi 2025**!
 ---
 
 Happy studying! 🚀
-
-```
