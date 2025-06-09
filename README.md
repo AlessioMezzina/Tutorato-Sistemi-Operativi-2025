@@ -57,7 +57,7 @@ Benvenuti alla repo del tutorato di **Sistemi Operativi 2025**!
 | ---------- | -------------------------------------------------------------------------------------- | ---- | ----------- | --- | --------------- |
 | 28/05/2025 | Primo Incontro Introduttivo sulla Shell + Esercizio in C                               | 1    | 15:00–17:00 | 2   | 2               |
 | 04/06/2025 | Secondo Incontro Introduttivo sulla Shell + Esercizio in C                             | 1    | 15:00–17:00 | 2   | 4               |
-| 09/06/2025 | Esercizio n°2 (tutti gli esercizi svolti sono reperibili alla seguente repo di GitHub) | 3    | 15:00–17:00 | 2   | 6               |
+| 09/06/2025 | Esercizio n°2                                                                          | 3    | 15:00–17:00 | 2   | 6               |
 | 11/06/2025 | Esercizio n°3                                                                          | 3    | 15:00–17:00 | 2   | 8               |
 
 ---
