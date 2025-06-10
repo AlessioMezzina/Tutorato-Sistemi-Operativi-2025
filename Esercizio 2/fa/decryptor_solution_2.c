@@ -23,8 +23,6 @@ typedef struct{
     int index;
 } thread_keys_t;
 
-readingResources_t readRes = {.line =NULL, .n_keys=0, .capacity = 16};
-
 void cleanup(char * line, FILE * fd, int n_keys, char ** keys, char * ERR){
     if(line!=NULL){free(line);}
     if(fd!=NULL){fclose(fd);}
@@ -64,48 +62,49 @@ static void* writing_thread(void * args){
     return NULL;
 }
 
-void * read_thread(){
-    pthread_mutex_lock(&readRes.mutex1);
-    char ** keys = malloc(readRes.capacity *sizeof(char*));
+void * read_thread(void * args){
+    readingResources_t * readRes = (readingResources_t *)args;
+    pthread_mutex_lock(&readRes->mutex1);
+    char ** keys = malloc(readRes->capacity *sizeof(char*));
     if(!keys){
-        cleanup(NULL, readRes.kf, readRes.n_keys, keys, "malloc Keys");
+        cleanup(NULL, readRes->kf, readRes->n_keys, keys, "malloc Keys");
     }
-    while((readRes.bytes = getline(&readRes.line, &readRes.len, readRes.kf))!= -1){
-        printf("[T_READ] Read %zu bytes\n", readRes.bytes);
+    while((readRes->bytes = getline(&readRes->line, &readRes->len, readRes->kf))!= -1){
+        printf("[T_READ] Read %zu bytes\n", readRes->bytes);
         
-        if(readRes.bytes>0 && readRes.line[readRes.bytes-1]=='\n'){
-            readRes.line[readRes.bytes-1] = '\0';
-        }else if(readRes.bytes == 0){
+        if(readRes->bytes>0 && readRes->line[readRes->bytes-1]=='\n'){
+            readRes->line[readRes->bytes-1] = '\0';
+        }else if(readRes->bytes == 0){
             printf("[T_READ] Line was blank\n");
         }
-        char * key_copy = strdup(readRes.line);
+        char * key_copy = strdup(readRes->line);
         if(!key_copy){
-            cleanup(readRes.line, readRes.kf, readRes.n_keys, keys, "strdup failed");
+            cleanup(readRes->line, readRes->kf, readRes->n_keys, keys, "strdup failed");
         }
         printf("[T_READ] key saved: %s\n", key_copy);
         //char ** tmp = realloc(keys, (n_keys+1) * sizeof(char *));
-        if(readRes.n_keys>=readRes.capacity){
-            readRes.capacity= readRes.capacity *2;
-            keys = realloc(keys, readRes.capacity *(sizeof(char*)));
-            printf("[T_READ] realloc; capacity: %ld\n", readRes.capacity);
+        if(readRes->n_keys>=readRes->capacity){
+            readRes->capacity= readRes->capacity *2;
+            keys = realloc(keys, readRes->capacity *(sizeof(char*)));
+            printf("[T_READ] realloc; capacity: %ld\n", readRes->capacity);
             if(!keys){
-            cleanup(readRes.line, readRes.kf, readRes.n_keys, keys, "malloc error");
+            cleanup(readRes->line, readRes->kf, readRes->n_keys, keys, "malloc error");
             }
         }
         
-        readRes.n_keys++;
-        keys[readRes.n_keys-1] = key_copy;
+        readRes->n_keys++;
+        keys[readRes->n_keys-1] = key_copy;
     }
-    if(readRes.n_keys<0){
-        cleanup(readRes.line, readRes.kf, readRes.n_keys, keys,"TOO FEW KEYS");
+    if(readRes->n_keys<0){
+        cleanup(readRes->line, readRes->kf, readRes->n_keys, keys,"TOO FEW KEYS");
     }
-    readRes.final_keys = keys;
+    readRes->final_keys = keys;
     printf("[T_READ] final resources cleanup...\n");
-    free(readRes.line);
-    fclose(readRes.kf);
-    pthread_mutex_unlock(&readRes.mutex1);
+    free(readRes->line);
+    fclose(readRes->kf);
+    pthread_mutex_unlock(&readRes->mutex1);
     printf("[T_READ] READ finished\n");
-    return NULL;
+    return (void *)keys;
 }
 
 int main(int argc, char * argv[]){
@@ -118,13 +117,14 @@ int main(int argc, char * argv[]){
     if((kf = fopen(argv[1], "r"))<0){
         exit_with_sys_err("File Open");
     }
+    readingResources_t readRes = {.line =NULL, .n_keys=0, .capacity = 16};
     readRes.kf=kf;
 
     printf("[MAIN] Enter reading phase\n");
-
+    
     pthread_t threadRead;
-    pthread_create(&threadRead, NULL, (void *)read_thread, (NULL));
-    pthread_join(threadRead,NULL);
+    pthread_create(&threadRead, NULL, (void *)read_thread, (void*)&readRes);
+    readRes.final_keys = (char **) pthread_join(threadRead,NULL);
     
     printf("[MAIN] back to main now\n");
     
