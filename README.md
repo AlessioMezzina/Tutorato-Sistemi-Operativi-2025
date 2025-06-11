@@ -43,7 +43,7 @@
 
    ```bash
    gcc main.c -o main
-   ./scheduler
+   ./main
    ```
 
 ---
