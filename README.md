@@ -8,7 +8,7 @@
 ├── ...
 ├── Esercizio i
 │   ├── *.pdf                     # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
-│   │ *.txt                     # File necessari per lo svoglimento dell'esercizio 
+│   ├── *.txt                     # File necessari per lo svoglimento dell'esercizio 
 │   ├── main.c                    # Soluzione
 │   └── Soluzione_alt_[COGNOME]   # Soluzioni alternative fornite dagli studenti
 │       ├── Changes.md            # MD per elencare le differenze con la soluzione proposta dal Tutor
