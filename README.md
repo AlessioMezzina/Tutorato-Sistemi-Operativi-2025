@@ -7,9 +7,11 @@
 ├── Esercizio 2
 ├── ...
 ├── Esercizio i
-│   ├── *.pdf                  # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
-│   ├── *.txt                  # File necessari per lo svoglimento dell'esercizio 
-│   └── main.c                 # Soluzione
+│   ├── *.pdf                     # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
+│   ├── *.txt                     # File necessari per lo svoglimento dell'esercizio 
+│   ├── main.c                    # Soluzione
+│   └── Soluzione_alt_[COGNOME]   # Soluzioni alternative fornite dagli studenti
+│       └── main.c
 ├── Esercizio ...
 ├── Esercizio n
 ├── Slide
