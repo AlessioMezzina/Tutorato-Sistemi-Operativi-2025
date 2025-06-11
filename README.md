@@ -7,14 +7,17 @@
 ├── Esercizio 2
 ├── ...
 ├── Esercizio i
-│   ├── pdf                    # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
-│   ├── ohters.txt             # File necessari per lo svoglimento dell'esercizio 
-│   └── main.c                 # Soluzione commentata per
+│   ├── *.pdf                     # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
+│   ├── *.txt                     # File necessari per lo svoglimento dell'esercizio 
+│   ├── main.c                    # Soluzione
+│   └── Soluzione_alt_[COGNOME]   # Soluzioni alternative fornite dagli studenti
+│       ├── Changes.md            # MD per elencare le differenze con la soluzione proposta dal Tutor
+│       └── main.c                # Soluzione proposta dallo studente, con lo stesso nome della soluzione proposta dal Tutor
 ├── Esercizio ...
 ├── Esercizio n
 ├── Slide
-    ├── *.pdf                  # Eventuali Slide fornite durante il tutorato
-└── README.md                  # Questo file!
+│   └── *.pdf                  # Eventuali Slide fornite durante il tutorato
+└── README.md                 # Questo file!
 ````
 
 ## 🛠️ Prerequisiti
@@ -43,7 +46,7 @@
 
    ```bash
    gcc main.c -o main
-   ./scheduler
+   ./main
    ```
 
 ---
