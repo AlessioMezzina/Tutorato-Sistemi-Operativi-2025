@@ -7,14 +7,14 @@
 ├── Esercizio 2
 ├── ...
 ├── Esercizio i
-│   ├── pdf                    # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
-│   ├── ohters.txt             # File necessari per lo svoglimento dell'esercizio 
-│   └── main.c                 # Soluzione commentata per
+│   ├── *.pdf                  # Per ogni esercizio pdf che propone il questio affrontato (es. testo d'esame)
+│   ├── *.txt                  # File necessari per lo svoglimento dell'esercizio 
+│   └── main.c                 # Soluzione
 ├── Esercizio ...
 ├── Esercizio n
 ├── Slide
-    ├── *.pdf                  # Eventuali Slide fornite durante il tutorato
-└── README.md                  # Questo file!
+│   ├─ *.pdf                  # Eventuali Slide fornite durante il tutorato
+└── README.md                 # Questo file!
 ````
 
 ## 🛠️ Prerequisiti
