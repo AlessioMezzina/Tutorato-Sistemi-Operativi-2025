@@ -13,7 +13,7 @@
 ├── Esercizio ...
 ├── Esercizio n
 ├── Slide
-│   ├─ *.pdf                  # Eventuali Slide fornite durante il tutorato
+│   └── *.pdf                  # Eventuali Slide fornite durante il tutorato
 └── README.md                 # Questo file!
 ````
 
