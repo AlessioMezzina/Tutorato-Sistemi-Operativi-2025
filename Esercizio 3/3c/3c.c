@@ -76,7 +76,14 @@ int main(int argc, char *argv[])
     /* ===== 4. Scansione e stampa offset =================== */
     size_t count = 0;
     for (off_t i = 0; i < sb.st_size; ++i) {
-        if (data[i] == target) {
+        if (data[i] == target) { 
+            /* 
+             * Ovviamente per trovare caratteri che siano sia maiuscoli
+             * che minuscoli dobbiamo utilizzare nell'if la seguente
+             * tolower(data[i]) == tolower(target);
+             * oppure strcasecmp() se vogliamo ignorare il case
+             * strcasecmp(data[i], target) == 0
+             */
             printf("Trovato '%c' all'offset %jd\n", target, (intmax_t)i);
             ++count;
         }
