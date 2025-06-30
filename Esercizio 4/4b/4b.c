@@ -34,7 +34,16 @@ static double now_ms(void)
 }
 
 /* ------------------------------------------------------------------ */
-/* variabili globali                                                  */
+/* Variabili globali
+ *
+ * L'uso delle variabili globali non è generalmente considerato una buona pratica,
+ * ma in questo esercizio sono utilizzate a scopo didattico.
+ * A lezione abbiamo discusso delle variabili globali, della loro inizializzazione
+ * e delle problematiche che possono insorgere in caso di errori.
+ *
+ * Sentitevi liberi di creare una fork del progetto e riscrivere il codice
+ * evitando l'uso di variabili globali.
+ */
 static unsigned        Nthreads;      /* corridori totali                  */
 static unsigned        max_delay;     /* ritardo massimo in millisecondi   */
 static runner_t       *table;         /* classifica condivisa              */
