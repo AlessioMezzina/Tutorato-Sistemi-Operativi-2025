@@ -25,7 +25,16 @@
 /* lunghezza massima di ciascun messaggio (incluso il terminatore) */
 #define MSG_LEN 128
 
-/* ---------- buffer circolare condiviso ---------- */
+/* Variabili globali
+ *
+ * L'uso delle variabili globali non è generalmente considerato una buona pratica,
+ * ma in questo esercizio sono utilizzate a scopo didattico.
+ * A lezione abbiamo discusso delle variabili globali, della loro inizializzazione
+ * e delle problematiche che possono insorgere in caso di errori.
+ *
+ * Sentitevi liberi di creare una fork del progetto e riscrivere il codice
+ * evitando l'uso di variabili globali.
+ */
 static char   **buf;        /* array di puntatori a stringa */
 static size_t   head = 0;   /* prossima posizione di scrittura */
 static size_t   tail = 0;   /* prossima posizione di lettura   */
