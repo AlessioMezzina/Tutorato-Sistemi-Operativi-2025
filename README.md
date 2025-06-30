@@ -13,8 +13,9 @@
 │   └── Soluzione_alt_[COGNOME]/[GitHub Username]   # Soluzioni alternative fornite dagli studenti (Mettere Cognome o l'username di GitHub)
 │       ├── Changes.md            # MD per elencare le differenze con la soluzione proposta dal Tutor
 │       └── main.c                # Soluzione proposta dallo studente, con lo stesso nome della soluzione proposta dal Tutor
-├── Esercizio ...
-├── Esercizio n
+├── Esame 1
+├── ...
+├── Esame n
 ├── Slide
 │   └── *.pdf                  # Eventuali Slide fornite durante il tutorato
 └── README.md                 # Questo file!
