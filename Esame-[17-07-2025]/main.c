@@ -16,6 +16,7 @@ void safe_print(const char *message) {
     printf("%s", message);
     pthread_mutex_unlock(&print_mutex);
 }
+
 // Struttura per rappresentare una matrice
 typedef struct {
     unsigned char matrix[16][16];  // Dimensione massima 16x16
@@ -272,6 +273,25 @@ void *reader_thread(void *arg) {
         return NULL;
     }
     
+    //print the content of the file + the number of matrices
+    pthread_mutex_lock(&print_mutex);
+    printf("[READER-%d] mappato file di %ld byte\n", params->reader_id, st.st_size);
+    printf("[READER-%d] contenuto del file:\n", params->reader_id);
+    // print the content of the file
+    int c = 0;
+    for (size_t i = 0; i < st.st_size; i+=params->matrix_size*params->matrix_size) {
+        printf("matrice n: %d\n", c);
+        for (int j = 0; j < params->matrix_size; j++) {
+            for (int k = 0; k < params->matrix_size; k++) {
+                printf("%d ", data[i + j * params->matrix_size + k]);
+            }
+            printf("\n");
+        }
+        c++;
+    }
+    printf("\n");
+    pthread_mutex_unlock(&print_mutex);
+
     int matrix_size = params->matrix_size; //dimesnione della matrice
     int matrix_bytes = matrix_size * matrix_size; //byte per sinola matrice
     int num_matrices = st.st_size / matrix_bytes; //numero di matrici nel file
