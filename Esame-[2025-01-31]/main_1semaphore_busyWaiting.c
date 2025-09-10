@@ -8,11 +8,9 @@
 #include <sched.h>
 #include <limits.h> 
 #include <unistd.h>
-#define wait_time 2000
 
 typedef struct {
     sem_t sem_ready; 
-    sem_t sem_release;  
 
     long long op1;
     long long op2;
@@ -59,7 +57,6 @@ static void* th_op1(void *arg){
         }
         else{
             continue;
-            sem_wait(&S->sem_release);
         }
     }
     fclose(fp);
@@ -92,7 +89,6 @@ static void* th_op2(void *arg){
         }
     } else{
         continue;
-        sem_wait(&S->sem_release);
     }
     }
     fclose(fp);
@@ -149,7 +145,6 @@ static void* th_ops(void *arg){
         }
         } else{
             continue;
-            sem_wait(&S->sem_release);
         }
     }
 
@@ -189,10 +184,6 @@ static void* th_calc(void *arg){
         S->op1_ready = false;
         S->op2_ready = false;
         S->ops_ready = false;
-        // Sveglio i 3 produttori
-        //sem_post(&S->sem_release);
-        //sem_post(&S->sem_release);
-        //sem_post(&S->sem_release);
     }
     return NULL;
 }
@@ -209,7 +200,6 @@ int main(int argc, char **argv){
     Shared S;
     memset(&S, 0, sizeof S);
     if(sem_init(&S.sem_ready,0,0)) die("sem_init gate");
-    if(sem_init(&S.sem_release,0,0)) die("sem_init calc");
 
     pthread_t t1,t2,t3,tc;
     Args a1={.S=&S,.path=argv[1]};
@@ -227,7 +217,6 @@ int main(int argc, char **argv){
     pthread_join(tc,NULL);
 
     sem_destroy(&S.sem_ready);
-    sem_destroy(&S.sem_release);
 
     printf("[MAIN] termino il processo\n");
     return EXIT_SUCCESS;
