@@ -1,0 +1,41 @@
+at-exit.o: at-exit.c
+copy.o: copy.c lib-misc.h
+copy-stream.o: copy-stream.c lib-misc.h
+count.o: count.c lib-misc.h
+creation-mask.o: creation-mask.c lib-misc.h
+exec.o: exec.c lib-misc.h
+fork-buffer-glitch.o: fork-buffer-glitch.c
+fork.o: fork.c lib-misc.h
+hello.o: hello.c
+hole.o: hole.c lib-misc.h
+lib-misc.o: lib-misc.c lib-misc.h
+list-dir.o: list-dir.c lib-misc.h
+mmap-copy.o: mmap-copy.c lib-misc.h
+mmap-read.o: mmap-read.c lib-misc.h
+mmap-reverse.o: mmap-reverse.c lib-misc.h
+move.o: move.c lib-misc.h
+multi-fork.o: multi-fork.c lib-misc.h
+multi-fork-with-wait.o: multi-fork-with-wait.c lib-misc.h
+multi-thread-join.o: multi-thread-join.c lib-misc.h
+my-cat.o: my-cat.c lib-misc.h
+nano-shell.o: nano-shell.c lib-misc.h
+redirect.o: redirect.c lib-misc.h
+stat.o: stat.c lib-misc.h
+streams-and-buffering.o: streams-and-buffering.c lib-misc.h
+TEST2.o: TEST2.c lib-misc.h
+TEST.o: TEST.c lib-misc.h
+test-seek-on-stdin.o: test-seek-on-stdin.c
+thread-barrier.o: thread-barrier.c lib-misc.h
+thread-conc-problem.o: thread-conc-problem.c lib-misc.h
+thread-conc-problem-fixed-with-mutex.o: \
+ thread-conc-problem-fixed-with-mutex.c lib-misc.h
+thread-ids.o: thread-ids.c lib-misc.h
+thread-memory-glitch.o: thread-memory-glitch.c lib-misc.h
+thread-number-set-with-rwlock.o: thread-number-set-with-rwlock.c \
+ lib-misc.h
+thread-prod-cons-with-sem.o: thread-prod-cons-with-sem.c lib-misc.h
+thread-safe-number-queue-as-monitor.o: \
+ thread-safe-number-queue-as-monitor.c lib-misc.h
+thread-safe-number-set-with-rwlock.o: \
+ thread-safe-number-set-with-rwlock.c lib-misc.h
+thread-sort-with-barrier.o: thread-sort-with-barrier.c lib-misc.h

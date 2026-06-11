@@ -1,0 +1,16 @@
+Questo e' un semplice file di testo usato come oggetto generico del
+file-system durante gli esempi di laboratorio.
+
+Puo' essere usato per osservare:
+
+- il tipo di oggetto: file regolare
+- i permessi di accesso
+- la dimensione in byte
+- i tempi di accesso, modifica e cambio attributi
+- l'i-number associato all'i-node
+
+Esempi di comandi utili:
+
+ls -l Esempi-11-06/file.txt
+stat Esempi-11-06/file.txt
+./Esempi-11-06/00-copy-stream-blocks Esempi-11-06/file.txt Esempi-11-06/file.copia.txt

@@ -5,7 +5,7 @@ Materiale per il tutorato di Sistemi Operativi e per gli esempi delle lezioni di
 La struttura corrente separa il materiale del tutorato 2025 dagli esempi delle lezioni attuali:
 
 - `Tutorato2025/`: esercizi, prove d'esame, soluzioni e slide del tutorato A.A. 2024-2025.
-- `Esempi-Lezioni-Lab2026/`: esempi organizzati per data delle lezioni di laboratorio 2026.
+- `Esempi-Lezioni-Lab2026/`: esempi organizzati per data delle lezioni di laboratorio 2026. Sono presenti esempi presi direttamente dagli esempi forniti dal professore Mario Di Raimondo, per una preparazione adeguata della materia si dovrebbe fare sempre affidamento agli esempi forniti dal docente e non questi qui che sono secondari
 
 ## Prerequisiti
 
